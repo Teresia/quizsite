@@ -12,6 +12,9 @@
 	<script src='script.js'></script>
 </head>
 <body>
+{% for quiz_slug, quiz in quizzes.items %}
+<p>{{ quiz.name }}</p>
+{% endfor %}
 <h1>Välkommen till min quizsida</h1>
 <p>Här beskriver jag lite kort vilka quiz som finns!</p>
 <div class="wrapper">
