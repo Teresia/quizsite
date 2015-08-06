@@ -12,33 +12,28 @@
 	<script src='script.js'></script>
 </head>
 <body>
-{% for quiz_slug, quiz in quizzes.items %}
-<p>{{ quiz.name }}</p>
-{% endfor %}
+
+
+
 <h1>Välkommen till min quizsida</h1>
-<p>Här beskriver jag lite kort vilka quiz som finns!</p>
+<p>Här finn det en massa kul quiz om våra bästa vänner!</p>
 <div class="wrapper">
 <div class="table">
+		{% for quiz_slug, quiz in quizzes.items %}
 	<div class="row">
-		<div class="cell cell_image monkey">
+		<div style ="background-image: url('{{quiz.image}}')" class="cell cell_image">
 		</div>
+
 		<div class="cell cell_text">
-			<h2>Ett quiz om apor</h2>
-			<p>Testa dina kunskaper om våra närmaste släktingar!</p>
-				<a href="quiz.html" class="button_flat button_flat-2">Till quizet</a>
+			<h2>{{ quiz.name }}</h2>
+			<p>{{ quiz.description }}</p>
+				<a href="{% url "quiz_page" quiz_slug %}" class="button_flat button_flat-2">
+		{{ "Till quizet" }}</a>
 
 		</div>
 	</div>
-		<div class="row">
-		<div class="cell cell_image cat">
-		</div>
-		<div class="cell cell_text">
-			<h2>Ett quiz om katter</h2>
-			<p>Vad kan du egentligen om katter?</p>
-				<a href="#" class="button_flat button_flat-2">Till quizet</a>
+	{% endfor %}
 
-		</div>
-	</div>
 </div>
 </div>
 

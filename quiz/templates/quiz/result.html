@@ -12,17 +12,15 @@
 	<script src='script.js'></script>
 </head>
 <body>
-<h1>Du är klar och fick {{ correct }} av {{ total }}</h1>
-<h1>Du är ju en <strong>Ap-Expert</strong></h1>
+<h1>Bra jobbat!</h1>
 <div class="wrapper">
 	<div class="circle" id="boll">
 		<div class="image happy_monkey" ></div>
 	</div>
 </div>
-<h2>Du hade nämligen <strong>100% rätt</strong></h2>
+<h2>Du är klar och fick <strong>{{ correct }}</strong> av <strong>{{ total }}</h2>
 <p class="textbox" >Du är nästan obehagligt bra på apor. Vart har du lärt dig allt? Föreslår att du träffar lite folk ibland och kankse försöker beblanda dig lite mer men människor.</p>
-<a href="index.html" class="button_flat button_flat-2">Tillbaka till alla quiz</a>
-
+<a href="{% url "start_page" %}" class="button_flat button_flat-2">Tillbaka till alla quiz</a>
 
 
 </body>

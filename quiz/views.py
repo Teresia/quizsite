@@ -2,19 +2,22 @@
 from django.shortcuts import render
 
 quizzes = {
-	"klassiker": {
-   		"name": u"Klassiska böcker",
-	   	"description": u"Hur bra kan du dina klassiker?"
+	"apor": {
+   		"name": u"Ap-quizzet",
+	   	"description": u"Testa dina kunskaper om våra närmaste släktingar!",
+	   	"image": u"/static/orangutan.jpg",
 	},
-	"fotboll": {
-	   	"name": u"Största fotbollslagen",
-	   	"description": u"Kan du dina lag?"
-	},
-	"kanda-hackare": {
-	    	"name": u"Världens mest kända hackare",
-	    	"description": u"Hackerhistoria är viktigt, kan du den?"	},
-}
+	"cats": {
+	   	"name": u"Katt-quizzet",
+	   	"description": u"Vad kan du egentligen om katter?",
+	   	"image": u"/static/cat.jpg",
 
+	},
+	"pigs": {
+	    	"name": u"Gris-quizzet",
+	    	"description": u"Hur mycket kan du om grisar?",
+	    	"image": u"/static/pig.jpg"	},
+}
 
 
 # def index(request):
@@ -43,5 +46,12 @@ def question(request, slug, number):
 	}
 	return render(request, "quiz/question.html", context)
 
-def result(request):
-	return render(request, "quiz/result.html")
+
+def result(request, slug):
+	context = {
+	    "correct": 12,
+	    "total": 20,
+		"quiz_slug": slug,
+	}
+	return render(request, "quiz/result.html", context)
+

@@ -14,24 +14,13 @@
 <body>
 	<h1>{{ quiz.name }}</h1>
 	<p>{{ quiz.description }}</p>
-<h1>Apquiz</h1>
-<h2>Sätt dina kunskaper på prov. Hur mycket kan du om apor egentligen?</h2>
-<p>Här beskriver jag lite kort vad det är för quiz!</p>
 <div class="wrapper">
 	<div class="circle" id="boll">
-		<a href ="http://www.tjejerkodar.se/" target="_blank">
-		<div class="image monkey" ></div>
-		</a>
+		<div style ="background-image: url('{{quiz.image}}')" class="image" ></div>
 	</div>
-	<a href="question.html" class="button_flat button_flat-2">Starta quizet</a>
-</div>
-<div class="table">
-	<div class="row">
-		<div class="cell">
-		</div>
-	</div>
-</div>
+	<a href="{% url "question_page" quiz_slug 1 %}" class="button_flat button_flat-2">Starta quizzet</a>
 
+</div>
 
 
 </body>

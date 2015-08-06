@@ -1,7 +1,9 @@
 html{
 	background-color: #2eacb3;
-	
+}
 
+body {
+	padding-bottom: 200px;
 }
 
 h1{
@@ -12,7 +14,6 @@ h1{
 	font-weight: 100;
 	line-height: 48px;
 	margin-top: 48px;
-
 }
 
 
@@ -263,15 +264,19 @@ line-height: 1.2em;
 
 }
 .cat{
-    background-image: url("static.cat.jpg");
+    background-image: url("/static/cat.jpg");
 }
 
 .monkey{
-    background-image: url("static.orangutan.jpg");
+    background-image: url("/static/orangutan.jpg");
+}
+
+.pig{
+    background-image: url("/static/pig.jpg");
 }
 
 .happy_monkey{
-    background-image: url("static.happy-monkey.jpg");
+    background-image: url("/static/happy-monkey.jpg");
 }
 
 

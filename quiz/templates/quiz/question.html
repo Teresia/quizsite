@@ -12,24 +12,21 @@
 	<script src='script.js'></script>
 </head>
 <body>
-	<h1>{{ question_number }}. {{ question }}</h1>
-	<p>{{ answer1 }}</p>
-	<p>{{ answer2 }}</p>
-	<p>{{ answer3 }}</p>
-<h1>Fråga 1</h1>
-<p>Hur många (kända) ap-arter finns det i världen?</p>
-<div class="wrapper">
-	<a href="result.html" class="answerbox">
-	79
-	</a>
-	<a href="result.html" class="answerbox">
-	198
-	</a>
-	<a href="result.html" class="answerbox">
-	264
-	</a>
-</div>
 
+<h1>Fråga 1</h1>
+<p>{{ question_number }}. {{ question }}</p>
+<div class="wrapper">
+	<a href="{% url "result_page" quiz_slug %}" class="answerbox">
+	{{ answer1 }}
+	</a>
+	<a href="{% url "result_page" quiz_slug %}" class="answerbox">
+	{{ answer2 }}
+	</a>
+	<a href="{% url "result_page" quiz_slug %}" class="answerbox">
+	{{ answer3 }}
+	</a>
+
+</div>
 
 
 </body>
