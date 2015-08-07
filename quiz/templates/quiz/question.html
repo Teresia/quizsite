@@ -13,8 +13,8 @@
 </head>
 <body>
 
-<h1>Fråga 1</h1>
-<p>{{ question_number }}. {{ question }}</p>
+<h1>Fråga {{ question_number }} </h1>
+<p>{{ question }}</p>
 <div class="wrapper">
 	<form action="{% url "question_page" quiz.slug question_number %}" method="post">
 		{% csrf_token %}
