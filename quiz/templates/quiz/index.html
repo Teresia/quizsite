@@ -16,10 +16,11 @@
 
 
 <h1>Välkommen till min quizsida</h1>
-<p>Här finn det en massa kul quiz om våra bästa vänner!</p>
+<p>Här finns det en massa kul quiz om våra bästa vänner!</p>
 <div class="wrapper">
 <div class="table">
-		{% for quiz_slug, quiz in quizzes.items %}
+		{% for quiz in quizzes %}
+
 	<div class="row">
 		<div style ="background-image: url('{{quiz.image}}')" class="cell cell_image">
 		</div>
@@ -27,7 +28,7 @@
 		<div class="cell cell_text">
 			<h2>{{ quiz.name }}</h2>
 			<p>{{ quiz.description }}</p>
-				<a href="{% url "quiz_page" quiz_slug %}" class="button_flat button_flat-2">
+				<a href="{% url "quiz_page" quiz.slug %}" class="button_flat button_flat-2">
 		{{ "Till quizet" }}</a>
 
 		</div>

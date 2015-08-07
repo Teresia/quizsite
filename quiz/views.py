@@ -1,30 +1,32 @@
 # coding: utf-8
 from django.shortcuts import render
+from quiz.models import Quiz
 
-quizzes = {
-	"apor": {
-   		"name": u"Ap-quizzet",
-	   	"description": u"Testa dina kunskaper om våra närmaste släktingar!",
-	   	"image": u"/static/orangutan.jpg",
-	},
-	"cats": {
-	   	"name": u"Katt-quizzet",
-	   	"description": u"Vad kan du egentligen om katter?",
-	   	"image": u"/static/cat.jpg",
 
-	},
-	"pigs": {
-	    	"name": u"Gris-quizzet",
-	    	"description": u"Hur mycket kan du om grisar?",
-	    	"image": u"/static/pig.jpg"	},
-}
+# quizzes = {
+# 	"apor": {
+#    		"name": u"Ap-quizzet",
+# 	   	"description": u"Testa dina kunskaper om våra närmaste släktingar!",
+# 	   	"image": u"/static/orangutan.jpg",
+# 	},
+# 	"cats": {
+# 	   	"name": u"Katt-quizzet",
+# 	   	"description": u"Vad kan du egentligen om katter?",
+# 	   	"image": u"/static/cat.jpg",
+
+# 	},
+# 	"pigs": {
+# 	    	"name": u"Gris-quizzet",
+# 	    	"description": u"Hur mycket kan du om grisar?",
+# 	    	"image": u"/static/pig.jpg"	},
+# }
 
 
 # def index(request):
 # 	return render(request, "quiz/index.html")
 def index(request):
 	context = {
-		"quizzes": quizzes,
+	    	"quizzes": Quiz.objects.all(),
 	}
 	return render(request, "quiz/index.html", context)
 
