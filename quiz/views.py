@@ -1,59 +1,71 @@
 # coding: utf-8
 from django.shortcuts import render
 from quiz.models import Quiz
-
-
-# quizzes = {
-# 	"apor": {
-#    		"name": u"Ap-quizzet",
-# 	   	"description": u"Testa dina kunskaper om våra närmaste släktingar!",
-# 	   	"image": u"/static/orangutan.jpg",
-# 	},
-# 	"cats": {
-# 	   	"name": u"Katt-quizzet",
-# 	   	"description": u"Vad kan du egentligen om katter?",
-# 	   	"image": u"/static/cat.jpg",
-
-# 	},
-# 	"pigs": {
-# 	    	"name": u"Gris-quizzet",
-# 	    	"description": u"Hur mycket kan du om grisar?",
-# 	    	"image": u"/static/pig.jpg"	},
-# }
+from django.shortcuts import redirect
 
 
 # def index(request):
 # 	return render(request, "quiz/index.html")
 def index(request):
 	context = {
-	    	"quizzes": Quiz.objects.all(),
+			"quizzes": Quiz.objects.all(),
 	}
 	return render(request, "quiz/index.html", context)
 
 def quiz(request, slug):
 	context = {
-		"quiz": quizzes[slug],
-		"quiz_slug": slug,
+		"quiz": Quiz.objects.get(slug=slug),
 	}
 	return render(request, "quiz/quiz.html", context)
 
+
 def question(request, slug, number):
+	number = int(number)
+	quiz = Quiz.objects.get(slug=slug)
+	questions = quiz.questions.all()
+	if request.POST:
+		answer = int(request.POST["answer"])
+		saved_answers = {}
+		if quiz.slug in request.session:
+			saved_answers = request.session[quiz.slug]
+
+		saved_answers[str(number)] = answer
+		request.session[quiz.slug] = saved_answers
+
+		if questions.count() == number:
+				return redirect("result_page", quiz.slug)
+		else:
+			return redirect("question_page", quiz.slug, number +1)
+
+	question = questions[number - 1]
 	context = {
-		"question_number": number,
-	    "question": u"Hur många bultar har ölandsbron?",
-		"answer1": u"12",
-	   	"answer2": u"66 400",
-	    "answer3": u"7 428 954",
-	    "quiz_slug": slug,
+			"question_number": number,
+			"question": question.question,
+			"answer1": question.answer1,
+			"answer2": question.answer2,
+			"answer3": question.answer3,
+			"quiz": quiz,
 	}
 	return render(request, "quiz/question.html", context)
 
 
+
+
+
 def result(request, slug):
+	quiz = Quiz.objects.get(slug=slug)
+	questions = quiz.questions.all()
+	saved_answers = request.session[slug]
+	num_correct_answers = 0
+	for counter, question in enumerate(questions):
+			if question.correct == saved_answers[str(counter + 1)]:
+				num_correct_answers += 1
+
 	context = {
-	    "correct": 12,
-	    "total": 20,
-		"quiz_slug": slug,
+		"correct": num_correct_answers,
+		"total": questions.count(),
+		"quiz": quiz,
 	}
 	return render(request, "quiz/result.html", context)
+
 

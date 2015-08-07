@@ -8,24 +8,28 @@
 	<meta name="viewport" content="width=device-width">
 	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Emilys+Candy&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-	<script src="jquery-1.11.3.min.js"></script>
-	<script src='script.js'></script>
+	<script src="/static/jquery-1.11.3.min.js"></script>
+	<script src='/static/script.js'></script>
 </head>
 <body>
 
 <h1>Fråga 1</h1>
 <p>{{ question_number }}. {{ question }}</p>
 <div class="wrapper">
-	<a href="{% url "result_page" quiz_slug %}" class="answerbox">
-	{{ answer1 }}
-	</a>
-	<a href="{% url "result_page" quiz_slug %}" class="answerbox">
-	{{ answer2 }}
-	</a>
-	<a href="{% url "result_page" quiz_slug %}" class="answerbox">
-	{{ answer3 }}
-	</a>
+	<form action="{% url "question_page" quiz.slug question_number %}" method="post">
+		{% csrf_token %}
+<label class= "answerbox">
+	<input type="radio" name="answer" value="1"> {{ answer1 }}
+</label>	
+<label class="answerbox">
+	<input type="radio" name="answer" value="2"> {{ answer2 }}
+</label>
+<label class= "answerbox">
+	<input type="radio" name="answer" value="3"> {{ answer3 }}
+</label>
+<button type="submit" class="button_flat button_flat-2">Nästa</button>
 
+</form>
 </div>
 
 

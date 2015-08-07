@@ -45,8 +45,15 @@ line-height: 1.2em;
 }
 
 
-/*Knappar*/
 
+/*Knappar*/
+button{
+	-webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+    border: none;
+    width: 100%;
+}
 .button_flat {
 	
 	margin:0 auto;
@@ -174,12 +181,21 @@ line-height: 1.2em;
 	color: #e84f5e;
 }
 
-.answerbox:active {
+.answerbox_checked:hover{
+	color:white;
+}
+
+.answerbox:active, .answerbox_checked {
 	font-weight: 800;
 	background-color: #e84f5e;
 	color: white;
 	border: 2px solid white;
 	
+}
+
+.answerbox input[type="radio"]{
+	visibility: hidden;
+	margin-left: -16px;
 }
 
 

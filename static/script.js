@@ -1,11 +1,11 @@
-
 $( document ).ready(function() {
-    console.log( "ready!" );
-});
+    console.log( "readyyyyyy!" );
+
 
 
 $(".answerbox").click(function(){
-	alert("I am an alert box!");
+	$(".answerbox").removeClass("answerbox_checked");
 	$(this).addClass("answerbox_checked");
-});
+	});
 
+});

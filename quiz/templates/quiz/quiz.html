@@ -14,11 +14,12 @@
 <body>
 	<h1>{{ quiz.name }}</h1>
 	<p>{{ quiz.description }}</p>
+
 <div class="wrapper">
 	<div class="circle" id="boll">
-		<div style ="background-image: url('{{quiz.image}}')" class="image" ></div>
+		<div style ="background-image: url('/static/{{quiz.image}}')" class="image" ></div>
 	</div>
-	<a href="{% url "question_page" quiz_slug 1 %}" class="button_flat button_flat-2">Starta quizzet</a>
+	<a href="{% url "question_page" quiz.slug 1 %}" class="button_flat button_flat-2">Starta quizzet</a>
 
 </div>
 
