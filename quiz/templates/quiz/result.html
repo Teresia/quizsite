@@ -12,14 +12,27 @@
 	<script src='/static/script.js'></script>
 </head>
 <body>
+{% load mathfilters %}
+{% if correct|div:total == 1 %}
+<h1 id="result">Wohoo! Du fick alla rätt!</h1>
 
-<h1 id="result">Bra jobbat!{{correct|div:total}} </h1>
+{% elif correct|div:total >= 0.75 %}
+<h1 id="result">Bra! Du är ju nästan expert!</h1>
+
+{% elif correct|div:total >= 0.5 %}
+<h1 id="result">Gick väl helt ok...</h1>
+
+{% else %}
+<h1 id="result">Det gick inge bra alls! Du får nog läsa på lite!</h1>
+
+{% endif %}
+
 <div class="wrapper">
 	<div class="circle" id="boll">
 		<div class="image happy_monkey" ></div>
 	</div>
 </div>
-<h2>Du är klar och fick <strong>{{ correct }} rätt </strong> av <strong>{{ total }} möjliga</h2>
+<h2>Du fick <strong>{{ correct }} rätt </strong> av <strong>{{ total }} möjliga</h2>
 <a href="{% url "start_page" %}" class="button_flat button_flat-2">Tillbaka till alla quiz</a>
 
 
