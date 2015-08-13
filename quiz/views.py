@@ -65,6 +65,7 @@ def result(request, slug):
 		"correct": num_correct_answers,
 		"total": questions.count(),
 		"quiz": quiz,
+		"questions": quiz.questions.all(),
 	}
 	return render(request, "quiz/result.html", context)
 

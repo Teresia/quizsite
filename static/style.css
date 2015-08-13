@@ -44,6 +44,28 @@ line-height: 1.5em;
 
 }
 
+.whiteBox{
+	max-width: 500px;
+	margin: 0 auto;
+	background-color: #fff;
+	padding: 48px;
+
+}
+
+.whiteBox p, .whiteBox h2{
+	color: #2eacb3;
+	text-align: left;
+}
+
+.rightAnswer{
+	color: #1d9a1d;
+	font-family: 'Emilys Candy', cursive;
+}
+
+.wrongAnswer{
+	color: #ba1717;
+	font-family: 'Emilys Candy', cursive;
+}
 
 
 /*Knappar*/
