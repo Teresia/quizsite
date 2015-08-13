@@ -33,7 +33,7 @@ def question(request, slug, number):
 		request.session[quiz.slug] = saved_answers
 
 		if questions.count() == number:
-				return redirect("result_page", quiz.slug)
+				return redirect("result_page", quiz.slug, number)
 		else:
 			return redirect("question_page", quiz.slug, number +1)
 
@@ -66,6 +66,7 @@ def result(request, slug):
 		"total": questions.count(),
 		"quiz": quiz,
 		"questions": quiz.questions.all(),
+		"your_answer": saved_answers,
 	}
 	return render(request, "quiz/result.html", context)
 
