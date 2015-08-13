@@ -33,7 +33,7 @@ def question(request, slug, number):
 		request.session[quiz.slug] = saved_answers
 
 		if questions.count() == number:
-				return redirect("result_page", quiz.slug, number)
+				return redirect("result_page", quiz.slug)
 		else:
 			return redirect("question_page", quiz.slug, number +1)
 
