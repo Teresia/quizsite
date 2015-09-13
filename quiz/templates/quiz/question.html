@@ -13,24 +13,29 @@
 </head>
 <body>
 
-<h1>Fråga {{ question_number }}</h1>
-<p>{{ question }}</p>
-<div class="wrapper">
-	<form action="{% url "question_page" quiz.slug question_number %}" method="post">
-		{% csrf_token %}
-<label class= "answerbox">
-	<input type="radio" name="answer" value="1"> {{ answer1 }}
-</label>	
-<label class="answerbox">
-	<input type="radio" name="answer" value="2"> {{ answer2 }}
-</label>
-<label class= "answerbox">
-	<input type="radio" name="answer" value="3"> {{ answer3 }}
-</label>
-<button type="submit" class="button_flat button_flat-2">Nästa</button>
+	<h1>{{ quiz }}</h1>
+	<h2>{{ question }}</h2>
+	<div class="wrapper">
+		<div class="imageContainer">
+			<form action="{% url "question_page" quiz.slug question_number %}" method="post">
+				{% csrf_token %}
+				<label class= "answerbox answerbox1" id = {% if correct == 1 %} "fooID" {% else %} "fooID2"{% endif %} style ="background-size: cover; background-image: url('/static/{{ answer1 }}')">
+					<input type="radio" name="answer" value="1"> 
+					<p class="answerText-wrong"> FEL! </p>
+					<p class="answerText-right"> RÄTT! </p>
 
-</form>
-</div>
+				</label>	
+				<label class="answerbox answerbox2" id = {% if correct == 2 %} "fooID" {% else %} "fooID2" {% endif %} style ="background-size: cover; background-image: url('/static/{{ answer2 }}')">
+					<input type="radio" name="answer" value="2"> 
+					<p class="answerText-wrong"> FEL! </p>
+					<p class="answerText-right"> Rätt! </p>
+				</label>
+
+				<button type="submit" class="submit-button">Nästa</button>
+
+			</form>
+		</div>
+	</div>
 
 
 </body>

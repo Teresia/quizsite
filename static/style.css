@@ -6,6 +6,7 @@ body {
 	padding-bottom: 200px;
 }
 
+
 h1{
 	color: #fff;
 	font-family: 'Emilys Candy', cursive;
@@ -24,6 +25,17 @@ text-align: center;
 font-size: 2em;
 font-weight: 300;
 margin-bottom: 36px;
+
+}
+
+h3{
+
+color: #FFF;
+font-family: "Josefin Sans",sans-serif;
+text-align: center;
+font-size: 2em;
+line-height: 2em;
+
 
 }
 
@@ -172,26 +184,43 @@ button{
 	width: 100%;
 }
 
+.imageContainer{
+	max-width: 800px;
+	margin: 0 auto;
+}
+
 .answerbox{
-    max-width: 300px;
+    width: 100%;
+    height: 150px;
     margin: 0 auto;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     background-color: white;
-    padding: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     margin-top: 8px;
-	color: #2eacb3;
+    border: 4px solid white;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	font-family:'Josefin Sans', sans-serif;
-	font-size: 2em;
-	max-width: 300px;
 	display: block;
-	text-align: center;
+	position: relative;
 }
 
-.answerbox p{
-	color: #2eacb3;;
+@media only screen and (min-width: 376px){
+.answerbox{
+    width: 49%;
+    height: 300px;    
+	display: inline-block;
+	    margin-top: 0px;
+
 }
+
+
+}
+
 
 .answerbox, .answerbox:hover,.answerbox:active {
 	outline: 0 none;
@@ -199,19 +228,13 @@ button{
 }
 
 .answerbox:hover {
-	font-weight: 800;
-	color: #e84f5e;
+		border: 4px solid #FFA933;
 }
 
-.answerbox_checked:hover{
-	color:white;
-}
+
 
 .answerbox:active, .answerbox_checked {
-	font-weight: 800;
-	background-color: #e84f5e;
-	color: white;
-	border: 2px solid white;
+	border: 4px solid #FFA933;
 	
 }
 
@@ -220,6 +243,65 @@ button{
 	margin-left: -16px;
 }
 
+
+.answerText-wrong, .answerText-right{
+	visibility: hidden;
+	position: absolute; 
+   bottom: 0px; 
+   left: 0; 
+   width: 100%; 
+   	color: red;
+	font-family: 'Emilys Candy', cursive;
+	text-align: center;
+	font-size: 2em;
+	font-weight: 100;
+	margin-bottom: 0px;
+}
+
+.fooClass{
+	border: 4px solid #1ce663;
+}
+
+/*.fooClass:hover{
+	border: 4px solid #21e025;
+}*/
+
+.answerbox_checked {
+	border: 4px solid #f42a42;
+	
+}
+
+.answerbox_checked#fooID2 .answerText-wrong{
+	visibility: visible;
+	color: #f42a42;
+	
+}
+
+.fooClass.answerbox_checked {
+	border: 4px solid #1ce663;
+	
+}
+
+
+.fooClass.answerbox_checked .answerText-right{
+	visibility: visible;
+	color: #1ce663;
+	
+}
+
+.answerbox_checked.answerbox:hover {
+	border: 4px solid #f42a42;
+	
+}
+
+.fooClass.answerbox_checked.answerbox:hover {
+	border: 4px solid #1ce663;
+	
+}
+
+.submit-button{
+	visibility: hidden;
+}
 
 
 /*Table*/
