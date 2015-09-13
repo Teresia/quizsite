@@ -4,6 +4,12 @@ $( document ).ready(function() {
 $(".answerbox").click(function(){
 	$(".answerbox").removeClass("answerbox_checked");
 	$(this).addClass("answerbox_checked");
+	console.log( "readyyyyyy!" );
+	$("#fooID").addClass("fooClass");
+	setTimeout(function(){
+			$(".submit-button").trigger("click")
+		}, 1100);
+
 	});
 
 // {% for quiz in quizzes %}

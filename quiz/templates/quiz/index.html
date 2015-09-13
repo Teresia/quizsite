@@ -16,7 +16,7 @@
 
 
 <h1>Välkommen till min quizsida</h1>
-<p>Här finns det en massa kul quiz om våra bästa vänner!</p>
+<p>Vilket quiz passar idag?</p>
 <div class="wrapper">
 <div class="table">
 		{% for quiz in quizzes %}
@@ -28,7 +28,7 @@
 		<div class="cell cell_text">
 			<h2>{{ quiz.name }}</h2>
 			<p>{{ quiz.description }}</p>
-				<a href="{% url "quiz_page" quiz.slug %}" class="button_flat button_flat-2">
+				<a href="{% url "question_page" quiz.slug 1 %}" class="button_flat button_flat-2">
 		{{ "Till quizet" }}</a>
 
 		</div>

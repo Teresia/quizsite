@@ -17,7 +17,7 @@
 <h1 id="result">Wohoo! Du fick alla rätt!</h1>
 
 {% elif correct|div:total >= 0.75 %}
-<h1 id="result">Bra! Du är ju nästan expert!</h1>
+<h1 id="result">Bra jobbat! Du kan dina grejer. </h1>
 
 {% elif correct|div:total >= 0.5 %}
 <h1 id="result">Gick väl helt ok...</h1>
@@ -29,58 +29,11 @@
 
 <div class="wrapper">
 	<div class="circle" id="boll">
-		<div class="image happy_monkey" ></div>
+		<div style ="background-image: url('/static/{{quiz.image}}')" class="image"  ></div>
 	</div>
 </div>
 <h2>Du fick <strong>{{ correct }} rätt </strong> av <strong>{{ total }} </strong>möjliga</h2>
-
-<div class="wrapper">
-	<div class="whiteBox">
-<h2>Och de rätta svaren är...</h2>
-{% for question in questions %}
-<p>{{ question.question }}</p>
-
-{% if question.correct == 1  %}
-<p>Rätt svar: <strong>{{ question.answer1 }}</strong>
-<!-- {% if question.saved_answers == 1  %}
-<span class="rightAnswer">- Du svarade rätt!</span>
-{% else %}
-<span class="wrongAnswer">- Du svarade fel!</span>
-
-{% endif %} -->
-</p>
-
-{% elif question.correct == 2  %}
-<p>Rätt svar: <strong>{{ question.answer2 }}</strong>
-<!-- {% if question.saved_answers == 2  %} -->
-<!-- <span class="rightAnswer">- Du svarade rätt!</span>
-{% else %}
-<span class="wrongAnswer">- Du svarade fel!</span>
-
-{% endif %} -->
-</p>
-
-
-{% elif question.correct == 3  %}
-<p>Rätt svar: <strong>{{ question.answer3 }}</strong>
-<!-- {% if question.saved_answers == 3  %}
-<span class="rightAnswer">- Du svarade rätt!</span>
-{% else %}
-<span class="wrongAnswer">- Du svarade fel!</span>
-{% endif %} -->
-</p>
-
-{% else %}
-<p>Rätt svarsalternativ: {{ question.correct }}</p>
-
-{% endif %}
-
-<br>
-{% endfor %}
-
 <a href="{% url "start_page" %}" class="button_flat button_flat-2">Tillbaka till alla quiz</a>
-</div>
-</div>
 
 </body>
 </html>
