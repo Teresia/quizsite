@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<h1>Fråga</h1>
+<h1>Fråga {{ question_number }}</h1>
 <p>{{ question }}</p>
 <div class="wrapper">
 	<form action="{% url "question_page" quiz.slug question_number %}" method="post">

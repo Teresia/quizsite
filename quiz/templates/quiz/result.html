@@ -32,7 +32,7 @@
 		<div class="image happy_monkey" ></div>
 	</div>
 </div>
-<h2>Du fick <strong>{{ correct }} rätt </strong> av <strong>{{ total }} {{saved_answers}} </strong>möjliga</h2>
+<h2>Du fick <strong>{{ correct }} rätt </strong> av <strong>{{ total }} </strong>möjliga</h2>
 
 <div class="wrapper">
 	<div class="whiteBox">
@@ -42,32 +42,32 @@
 
 {% if question.correct == 1  %}
 <p>Rätt svar: <strong>{{ question.answer1 }}</strong>
-{% if question.saved_answers == 1  %}
+<!-- {% if question.saved_answers == 1  %}
 <span class="rightAnswer">- Du svarade rätt!</span>
 {% else %}
 <span class="wrongAnswer">- Du svarade fel!</span>
 
-{% endif %}
+{% endif %} -->
 </p>
 
 {% elif question.correct == 2  %}
 <p>Rätt svar: <strong>{{ question.answer2 }}</strong>
-{% if question.saved_answers == 2  %}
-<span class="rightAnswer">- Du svarade rätt!</span>
+<!-- {% if question.saved_answers == 2  %} -->
+<!-- <span class="rightAnswer">- Du svarade rätt!</span>
 {% else %}
 <span class="wrongAnswer">- Du svarade fel!</span>
 
-{% endif %}
+{% endif %} -->
 </p>
 
 
 {% elif question.correct == 3  %}
 <p>Rätt svar: <strong>{{ question.answer3 }}</strong>
-{% if question.saved_answers == 3  %}
+<!-- {% if question.saved_answers == 3  %}
 <span class="rightAnswer">- Du svarade rätt!</span>
 {% else %}
 <span class="wrongAnswer">- Du svarade fel!</span>
-{% endif %}
+{% endif %} -->
 </p>
 
 {% else %}
