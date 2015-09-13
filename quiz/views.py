@@ -66,7 +66,7 @@ def result(request, slug):
 		"total": questions.count(),
 		"quiz": quiz,
 		"questions": quiz.questions.all(),
-		"your_answer": saved_answers,
+		"saved_answers": saved_answers,
 	}
 	return render(request, "quiz/result.html", context)
 

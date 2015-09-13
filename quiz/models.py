@@ -20,3 +20,13 @@ class Question(models.Model):
 
 	def __unicode__(self):
 		return self.quiz.name + " / " + self.question
+
+class ImageQuestion(models.Model):
+	quiz = models.ForeignKey(Quiz, related_name="questions")
+	question = models.TextField()
+	imageAnswer1 = models.CharField(max_length=100)
+	imageAnswer2 = models.CharField(max_length=100)
+	correct = models.PositiveIntegerField()
+
+	def __unicode__(self):
+		return self.quiz.name + " / " + self.question
